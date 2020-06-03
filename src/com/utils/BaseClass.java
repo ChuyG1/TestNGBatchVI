@@ -5,11 +5,15 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
 public class BaseClass {
 	
+	
 	public static WebDriver driver;
 	
+	@BeforeMethod(alwaysRun = true)
 	public static WebDriver setUp() {
 		
 		ConfigsReader.readProperties(Constants.CONFIGURATION_FILEPATH);
@@ -28,11 +32,14 @@ public class BaseClass {
 				throw new RuntimeException("Browser is not supported");
 		}
 		
-		driver.manage().window().maximize();
+		//driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Constants.IMPLICIT_WAIT_TIME, TimeUnit.SECONDS);
 		driver.get(ConfigsReader.getProperty("url"));
+		//initialize all page objects as part of setUp
+		PageInitializer.initialize();
 		return driver;
 	}
+	@AfterMethod(alwaysRun = true)
 	public static void tearDown() {
 		if(driver!=null) {
 			driver.quit();

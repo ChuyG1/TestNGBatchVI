@@ -16,15 +16,15 @@ import com.utils.Constants;
 
 public class HW extends CommonMethods {
 	
-	@BeforeMethod
-	public void openBrowserAndNavigate(){
-		setUp();
-	}
-	
-	@AfterMethod
-	public void quitBrowser() {
-		tearDown();
-	}
+//	@BeforeMethod
+//	public void openBrowserAndNavigate(){
+//		setUp();
+//	}
+//	
+//	@AfterMethod
+//	public void quitBrowser() {
+//		tearDown();
+//	}
 	
 	@Test(priority=2, dependsOnMethods = "invalidLogin")
 	public void validLogin2(){

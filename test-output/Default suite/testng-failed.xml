@@ -3,14 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.class02.HW">
+      <class name="com.class04.HW">
         <methods>
-          <include name="invalidLogin"/>
-          <include name="quitBrowser"/>
-          <include name="openBrowserAndNavigate"/>
-          <include name="validLogin2"/>
+          <include name="tearDown"/>
+          <include name="test" invocation-numbers="0"/>
+          <include name="setUp"/>
         </methods>
-      </class> <!-- com.class02.HW -->
+      </class> <!-- com.class04.HW -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

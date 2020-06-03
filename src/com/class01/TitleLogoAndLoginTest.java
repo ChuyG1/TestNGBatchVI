@@ -9,16 +9,16 @@ import com.utils.ConfigsReader;
 
 public class TitleLogoAndLoginTest extends CommonMethods{
 	
-	@BeforeMethod
-	public void openAndNavigate() throws InterruptedException {
-		setUp();
-		Thread.sleep(2000);
-	}
-	
-	@AfterMethod
-	public void quitBrowser() {
-		tearDown();
-	}
+//	@BeforeMethod
+//	public void openAndNavigate() throws InterruptedException {
+//		setUp();
+//		Thread.sleep(2000);
+//	}
+//	
+//	@AfterMethod
+//	public void quitBrowser() {
+//		tearDown();
+//	}
 	@Test
 	public void logoValidation() {
 		String logoPath="//div[@id='divLogo']/img";

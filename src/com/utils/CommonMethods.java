@@ -1,19 +1,23 @@
 package com.utils;
 
+import java.io.File;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchFrameException;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.UnexpectedTagNameException;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class CommonMethods extends BaseClass {
+public class CommonMethods extends PageInitializer {
 	/**
 	 * Method that clears and sends keys
 	 * @param element
@@ -55,19 +59,19 @@ public class CommonMethods extends BaseClass {
 			e.printStackTrace();
 		}
 	}
-	public static void SelectDdValue(WebElement element, String textToSelect) {
-		try {
-			Select select=new Select(element);
-			List<WebElement> options=select.getOptions();
-			
-			for(WebElement el: options) {
-				if(el.getText().equals(textToSelect)) {
-					select.selectByVisibleText(textToSelect);
-					break;
-				}
-			} 
-		}
-	}
+	//public static void SelectDdValue(WebElement element, String textToSelect) {
+	//	try {
+	//		Select select=new Select(element);
+	//		List<WebElement> options=select.getOptions();
+//			
+	//		for(WebElement el: options) {
+	//			if(el.getText().equals(textToSelect)) {
+	//				select.selectByVisibleText(textToSelect);
+	//				break;
+	//			}
+	//		} 
+	//	}
+	//}
 	
 	public static void acceptAlert() {
 		try {
@@ -172,6 +176,29 @@ public class CommonMethods extends BaseClass {
 	
 	public static void scrollUp(int pixel) {
 		getJSObject().executeScript("window.scrollBy(0,-"+pixel+")");
+	}
+	
+	/**
+	 * this Method will take a screenshot
+	 * 
+	 * @param filename
+	 */
+	public static void takeScreenshot(String filename) {
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File file = ts.getScreenshotAs(OutputType.FILE);
+		try {
+		FileUtils.copyFile(file, new File(filename));
+		} catch(Exception ex) {
+			
+		}
+	}
+	
+	public static void wait(int second) {
+		try {
+			Thread.sleep(second = 1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 	}
 	

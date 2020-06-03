@@ -8,15 +8,15 @@ import org.testng.annotations.Test;
 
 public class Task2 {
 	
-	@BeforeClass
-	public void beforeClass1(){
-		System.out.println("before class 1");
-	}
-	
-	@BeforeMethod
-	public void beforeMethod1() {
-		System.out.println("before method 1");
-	}
+//	@BeforeClass
+//	public void beforeClass1(){
+//		System.out.println("before class 1");
+//	}
+//	
+//	@BeforeMethod
+//	public void beforeMethod1() {
+//		System.out.println("before method 1");
+//	}
 	
 	@Test
 	public void test1() {
